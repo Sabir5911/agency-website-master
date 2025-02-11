@@ -10,6 +10,8 @@ import Hero2 from './components/Hero2'
 import Footer from './components/Footer'
 import Burger from './components/Burger'
 import Reviews from './components/Reviews'
+import OurTeam from './components/ourTeam'
+
 export default function page() {
   return (
     <div>
@@ -20,6 +22,7 @@ export default function page() {
       <Hero4 />
       <Services />
       <Reviews />
+      <OurTeam />
       <Hero6 />
       <Footer />
     </div>

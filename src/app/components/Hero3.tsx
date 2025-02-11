@@ -18,7 +18,7 @@ let data = {
 export default function Hero3() {
  
   return (
-    <div id="How It Works?" className="bg-[url(./assets/bg.svg)] bg-cover bg-center gap-y-10 flex flex-col   pb-10 mt-20 px-5 lg:px-20">
+    <div id="How It Works?" className="bg-cover bg-center gap-y-10 flex flex-col   pb-10 mt-20 px-5 lg:px-20">
       
       <div className="flex flex-col lg:flex-row items-center justify-between mt-20 ">
         <Section {...data} />

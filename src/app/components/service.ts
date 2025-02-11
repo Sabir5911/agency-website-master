@@ -72,37 +72,7 @@ const serviceContent = [
     ]
   },
 
-  {
-    "category": "Cloud Services",
-    "description1": "(AWS/DigitalOcean/Google Cloud)",
-    "description": "Leverage the power of cloud computing for seamless scalability and reliability.",
-    "service": [
-      { "service": "AWS" },
-      { "service": "Microsoft Azure" },
-      { "service": "Google Cloud Platform" }
-    ],
-    "AWS": [
-      { "title": "EC2 Instance Setup", "price": 199.99 },
-      { "title": "S3 Bucket Configuration", "price": 299.99 },
-      { "title": "Lambda Function Deployment", "price": 399.99 },
-      { "title": "DynamoDB Integration", "price": 499.99 },
-      { "title": "API Gateway Configuration", "price": 599.99 }
-    ],
-    "Microsoft Azure": [
-      { "title": "Virtual Machine Deployment", "price": 199.99 },
-      { "title": "Blob Storage Configuration", "price": 299.99 },
-      { "title": "Function App Setup", "price": 399.99 },
-      { "title": "Cosmos DB Integration", "price": 499.99 },
-      { "title": "API Management Configuration", "price": 599.99 }
-    ],
-    "Google Cloud Platform": [
-      { "title": "Compute Engine Instance Setup", "price": 199.99 },
-      { "title": "Cloud Storage Configuration", "price": 299.99 },
-      { "title": "Cloud Functions Deployment", "price": 399.99 },
-      { "title": "Firestore Integration", "price": 499.99 },
-      { "title": "Cloud Endpoints Configuration", "price": 599.99 }
-    ]
-  },
+
 
     {
     "category": "Firebase Services",

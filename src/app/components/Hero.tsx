@@ -1,3 +1,5 @@
+
+"use client"
 import React from "react";
 import Section from "../lib/Section";
 import image from "../assets/Hero.svg"; // Correct import
@@ -11,16 +13,18 @@ export default function Hero() {
     text1: "Discover App Magic for  Your Digital Future!",
     text2:
       "Embark on a Journey of Innovation: Unleash the Power of Mobile App Magic for  Your Digital Future!",
-  };
+      text2Color:"text-blue-300"
+    }
+  ;
 
   return (
-    <div className="bg-[url(./assets/bg.svg)] bg-cover bg-center">
+    <div className=" bg-cover bg-center">
 
       <Header />
   
       <div className="flex flex-col justify-between pt-10 items-center  h-[700px]">
 
-        <div className=" text-center text-black max-w-xl px-4 lg:px-0">
+        <div className=" text-center  max-w-xl px-4 lg:px-0">
           <Section {...data} />
           <div className="flex justify-center items-center mt-5 gap-x-3">
             <Image src={icons} width={40} height={40} alt="pla" />

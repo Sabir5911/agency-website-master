@@ -1,7 +1,7 @@
 // components/Footer.js
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 
 import { IoLogoFacebook } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa";

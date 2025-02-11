@@ -10,6 +10,8 @@ import icons from "../assets/i.svg";
 import holo from "../assets/hollow.svg";
 import Showonhover from "./Showonhover";
 
+import { useTheme } from "next-themes";
+
 interface Service {
   title: string;
   price: number;
@@ -24,6 +26,9 @@ interface ServiceItem {
 }
 
 export default function Services() {
+  const {themes,setTheme,theme}=useTheme()
+
+  console.log(theme==="dark")
   let [cart, setCart] = useState<CartItem[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
@@ -76,28 +81,29 @@ export default function Services() {
           />
         </div>
 
-        <div className="flex bg-[#FAFAFA] flex-col w-full md:flex-row lg:justify-between text-center mt-6 lg:mt-24 overflow-x-auto">
-  {serviceContent.map((item, index) => (
-    <div
-      key={index}
-      className={`w-full py-6 flex flex-col justify-center items-center cursor-pointer ${
-        index === selectedIndex ? "bg-white" : ""
-      }`}
-      onClick={() => setSelectedIndex(index)}
-      aria-selected={index === selectedIndex}
-    >
-      <p
-        className={`font-medium text-xs lg:text-base ${
-          index === selectedIndex ? "bg-[#FFFFFF] text-blue-500" : ""
-        }`}
+        <div
+  className={`flex flex-col w-full md:flex-row lg:justify-between text-center mt-6 lg:mt-24 overflow-x-auto  border border-blue-700 `}
+>
+  {serviceContent.map((item, index) => {
+    const isSelected = index === selectedIndex;
+    return (
+      <div
+        key={index}
+        className={`w-full py-6 flex flex-col justify-center items-center cursor-pointer 
+          ${isSelected ? "border border-blue-700" : ""}`}
+        onClick={() => setSelectedIndex(index)}
+        aria-selected={isSelected}
       >
-        {item.category}
-      </p>
-      <p className="text-[10px] mt-1 lg:text-sm">
-        {item.description1}
-      </p>
-    </div>
-  ))}
+        <p
+          className={`font-medium text-xs lg:text-base 
+            ${isSelected ? " text-blue-500" : ""}`}
+        >
+          {item.category}
+        </p>
+        <p className="text-[10px] mt-1 lg:text-sm">{item.description1}</p>
+      </div>
+    );
+  })}
 </div>
 
 
@@ -108,7 +114,7 @@ export default function Services() {
                 <span
                   key={i}
                   className={`text-center text-xs  md:text-sm lg:text-base  ${
-                    elm.service == selectedService ? "bg-white text-blue-500" : ""
+                    elm.service == selectedService ? " border-b border-blue-500 text-blue-500" : ""
                   } p-6 w-full`}
                   onClick={() => setSelectedService(elm.service)}
                 >
@@ -135,7 +141,7 @@ export default function Services() {
                     </div>
                     <div className="border flex justify-center py-3 w-1/2">
                       <div className="flex w-full justify-around items-center">
-                        <span className="font-semibold  md:text-sm lg:text-base">${elm.price}</span>
+                        <span className="font-semibold  md:text-sm lg:text-base">{elm.price}</span>
                         <div className="flex gap-x-2 justify-center items-center">
                           <Button
                             variant="Blue"
@@ -173,7 +179,7 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="border-t-8 border-blue-600 rounded-2xl h-[300px] lg:w-[556px] lg:h-[450px] shadow-2xl overflow-x-auto mt-6 lg:mt-0">
+          <div className="border-t-8 border-b-8 border-blue-600 rounded-2xl h-[300px] lg:w-[556px] lg:h-[450px] shadow-2xl overflow-x-auto mt-6 lg:mt-0">
             <div className="rounded-2xl px-5">
               <h2 className="text-center text-xl font-semibold mt-4">Estimate</h2>
               {cart.length === 0 ? (
@@ -194,7 +200,7 @@ export default function Services() {
                   <hr className="my-5" />
                   <div className="flex flex-col items-end">
                     <span className="text-2xl lg:text-3xl font-semibold text-[#0076FF]">
-                      ${totalCost.toFixed(3)}
+                      {totalCost.toFixed(3)}
                     </span>
                     <span className="text-sm lg:text-base font-medium text-[#777980]">
                       Estimated Total Cost

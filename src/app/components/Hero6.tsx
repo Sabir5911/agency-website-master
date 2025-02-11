@@ -1,12 +1,13 @@
+"use client"
 
 import { TextIcon } from "lucide-react";
-import React from "react";
+import React, { use } from "react";
 import Texticons from "../lib/Texticons";
 import Icons1 from "../assets/icon1.svg";
 import FormComponent from "../lib/FormComponent";
 import { Button } from "@/components/ui/button";
 import Section from "../lib/Section";
-
+import { useTheme } from "next-themes";
 let data = {
   Heading: "Contact Us",
   text1: "Connect with Us: Shape Your Digital Vision",
@@ -16,9 +17,13 @@ let data = {
 };
 
 export default function Hero6() {
+
+  const{theme}=useTheme()
+
+
   return (
 
-    <div className="bg-[url(./assets/bg2.svg)] w-full bg-cover bg-center  pb-7  mt-20 py-20 lg:px-20 " id="contact">
+    <div className=" w-full bg-cover bg-center  pb-7  mt-20 py-20 lg:px-20 " id="contact">
   
   
   <div className=" px-5  flex flex-col justify-center items-center lg:flex-row lg:justify-between">
@@ -35,8 +40,8 @@ export default function Hero6() {
 </div>
 
 
-<div className=" text-sm mt-12 lg:mt-0 flex flex-col gap-2 justify-center p-5 rounded-2xl bg-[rgba(255,255,255,0.6)] bg-blend-color">
-  <div className="text-[#1D2939]">
+<div className= {`text-sm mt-12 lg:mt-0 flex flex-col gap-2 justify-center p-5 rounded-2xl `}>
+  <div className=" ">
     <p className="font-semibold text-3xl">Get in Touch With Us!</p>
     <p className="text-[#475467] text-sm font-medium">
       Don't hesitate to contact us for more information or help.
