@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Wrapper from "./lib/Wrapper";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import Header from "./components/Header";
+import {Scroll} from 'next-animation'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +23,13 @@ export default function RootLayout({
       <body className={inter.className}>
       <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
   <Wrapper>
+    <Header />
+    
         {children}
         </Wrapper>            </ThemeProvider>
       

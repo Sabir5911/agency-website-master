@@ -1,6 +1,17 @@
 @tailwind base;
   @tailwind components;
   @tailwind utilities;
+  @import "@fontsource/roboto"; /* Default 400 weight */
+  @import "@fontsource/roboto/300.css"; /* Light */
+  @import "@fontsource/roboto/500.css"; /* Medium */
+  @import "@fontsource/roboto/700.css"; /* Bold */
+  
+  
+  .global-text-color{
+    color: #0cc0df;
+  }
+
+
 
   html {
     scroll-behavior: smooth;

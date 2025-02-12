@@ -1,41 +1,66 @@
+"use client";
 
-"use client"
-import React from "react";
-import Section from "../lib/Section";
-import image from "../assets/Hero.svg"; // Correct import
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import Header from "./Header";
-import icons from "../assets/icons.svg";
-import Burger from "./Burger";
+import { Button } from "@/components/ui/button";
+import { TypeAnimation } from "react-type-animation";
+import image from "../assets/2.svg";
 
 export default function Hero() {
-  let data = {
-    text1: "Discover App Magic for  Your Digital Future!",
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
+  const data = {
+    Heading: "Code Mate Agency",
     text2:
-      "Embark on a Journey of Innovation: Unleash the Power of Mobile App Magic for  Your Digital Future!",
-      text2Color:"text-blue-300"
-    }
-  ;
+      "Embark on a Journey of Innovation: Unleash the Power of Mobile App Magic for Your Digital Future!",
+  };
 
   return (
-    <div className=" bg-cover bg-center">
+    <div ref={ref} className="flex mt-16 justify-between items-center overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -100 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="max-w-xl px-4 flex flex-col"
+      >
+        <h1 className="max-w-md font-roboto scroll-m-20 text-4xl font-semibold lg:text-6xl">
+          {data.Heading}
+        </h1>
 
-      <Header />
-  
-      <div className="flex flex-col justify-between pt-10 items-center  h-[700px]">
+        {/* Animated Typing Effect */}
+        <TypeAnimation
+          sequence={["Application", 1000, "Websites", 1000, "& others", 1000]}
+          cursor={false}
+          speed={50}
+          className="flex h-[100px] font-roboto text-6xl font-semibold global-text-color"
+          repeat={Infinity}
+        />
 
-        <div className=" text-center  max-w-xl px-4 lg:px-0">
-          <Section {...data} />
-          <div className="flex justify-center items-center mt-5 gap-x-3">
-            <Image src={icons} width={40} height={40} alt="pla" />
-            <p>Explore</p>
-          </div>
-        </div>
-        <div className="">
-          {image &&  <Image src={image} width={800}  alt="mobile pic" className="w-[600px] lg:w-[700px]" />}
-          </div>
-      </div>
-      </div>
-    
+        <p className="max-w-sm text-sm text-muted-foreground">{data.text2}</p>
+
+        {/* Button Animation */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.9 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <Button size={"lg"} className="mt-5" variant={"Blue"}>
+            Our Services
+          </Button>
+        </motion.div>
+      </motion.div>
+
+      {/* Right Image - Comes from Right */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 100 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className=""
+      >
+        <Image src={image} width={400} alt="mobile pic" className="object-cover" />
+      </motion.div>
+    </div>
   );
 }
