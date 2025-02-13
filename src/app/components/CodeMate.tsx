@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
+import CustomButton from "../lib/Button";
 
 export default function DevmateLanding() {
     return (
-      <div className="flex flex-col items-start gap-1 justify-start text-left   font-roboto max-w-md">
+      <div className="flex flex-col items-start gap-1 justify-start text-left mt-32   font-roboto max-w-md">
        <p className={`max-w-sm text-sm text-muted-foreground`}> Pioneering Digital Revolution Since 2022</p>
         <h1 className="text-4xl/10 md:text-5xl font-bold mt-2 leading-snug" >
         Elevate your business with <span className="global-text-color">CODE MATE</span>
@@ -22,9 +23,10 @@ export default function DevmateLanding() {
             </li>
           ))}
         </ul>
-        <Button size={"lg"}  variant={"Blue"} className=" text-white hover:bg-transparent border mt-6">
-          UNLOCK FREE SESSION →
-        </Button>
+                        <CustomButton  Text=" UNLOCK FREE SESSION" size="lg" variant="Blue" className="mt-5"/>
+        
+          
+        
       </div>
     );
   }

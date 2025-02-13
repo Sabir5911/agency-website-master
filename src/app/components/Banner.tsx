@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import logo from "../assets/2.svg";
+import CustomButton from "../lib/Button";
 
 
 export default function AIReplacementCTA() {
     return (
-      <div className="flex items-center justify-between mt-16   shadow-[#0cc0df] shadow-lg p-6 rounded-lg max-w-4xl mx-auto font-roboto">
-        {/* Left Section */}
+<div className="  hidden lg:flex  items-center justify-between mt-16 shadow-[#0cc0df] shadow-lg p-6 rounded-lg max-w-4xl mx-auto font-roboto">
+{/* Left Section */}
         <div className="flex items-start space-x-4">
           {/* Icon */}
           <div className="">
@@ -28,9 +29,8 @@ export default function AIReplacementCTA() {
         </div>
   
         {/* Right Section - Button */}
-        <Button variant={"Blue"} size={"lg"}>
-          GET STARTED →
-        </Button>
+                        <CustomButton  Text=" GET STARTED" size="lg" variant="Blue" className=""/>
+      
       </div>
     );
   }

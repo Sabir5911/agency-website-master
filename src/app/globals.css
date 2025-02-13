@@ -11,19 +11,16 @@
     color: #0cc0df;
   }
 
+  .global-icon-text{
+    color: rgb(148 163 184); /* Equivalent to text-muted-foreground */
+    font-size: 0.875rem; /* Equivalent to text-sm */
+  }
 
-
-  html {
+  /* html {
     scroll-behavior: smooth;
   }
-  
-  .parrent{
-    column-width: 150px;
-  }
-
-  .ch {
-    width: 100%;
-  }
+   */
+ 
   @layer base {
     :root {
       --background: 0 0% 100%;

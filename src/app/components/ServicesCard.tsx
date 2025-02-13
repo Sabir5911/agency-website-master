@@ -2,12 +2,14 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { FaCheck } from "react-icons/fa";
+import { FaRocket } from "react-icons/fa6";
 
 const servicesData = [
   {
     title: "Web Development",
     description: "Either 3D website or Full-Stack Application with modern design, we’ve got you covered!",
-    buttonColor: "border-blue-600 text-white hover:bg-blue-600 hover:text-white",
+    buttonColor: "border-blue-600 text-white hover:bg-[#0cc0df] hover:text-white bg-transparent border border-[#0cc0df] text-white",
     features: [
       "3D Experience Websites",
       "Full Stack Applications",
@@ -19,19 +21,19 @@ const servicesData = [
   {
     title: "Social Media Marketing",
     description: "Whether it’s viral campaigns or targeted ads with custom content, you're at the right place!",
-    buttonColor: "bg-white text-red-600 hover:bg-red-700 hover:text-white",
+    buttonColor: "bg-[#0cc0df] text-white hover:bg-[#0cc0df] ",
     features: [
       "Meta & Google Campaigns",
       "Organic Followers",
       "Lead Generation",
       "Branding & Viral Content"
     ],
-    bgColor: " text-white"
+    
   },
   {
     title: "App Development",
     description: "We build all kinds of apps—AI-powered, startup apps, or tailored to any niche. Let’s bring your idea to life!",
-    buttonColor: "border-blue-600 text-white hover:bg-blue-600 hover:text-white",
+    buttonColor: "border-blue-600 text-white hover:bg-[#0cc0df] hover:text-white bg-transparent border border-[#0cc0df] text-white",
     features: [
       "Android & iOS",
       "AI-Powered Apps",
@@ -44,14 +46,13 @@ const servicesData = [
 
 interface serviceProps {
   index: number;
-  bgColor?: string;
   title: string;
   features: string[];
   description: string;
   buttonColor: string;
 }
 
-const Card = ({ bgColor, features, index, title, description, buttonColor }: serviceProps) => {
+const Card = ({  features, index, title, description, buttonColor }: serviceProps) => {
 
 
   return (
@@ -59,17 +60,21 @@ const Card = ({ bgColor, features, index, title, description, buttonColor }: ser
     initial={{ opacity: 0, y: -400 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.3 }}
-    viewport={{ once: false }} // This ensures it animates every time it enters the viewport
-    className={`p-6 rounded-lg shadow-md ${bgColor || ""}`}
+    viewport={{ once: true }} // This ensures it animates every time it enters the viewport
+    className={`p-6 rounded-lg shadow-md flex flex-col gap-1 `}
   >
-    <h3 className="text-xl font-semibold">{title}</h3>
-    <p className="mt-4 font-light text-sm max-w-[240px]">{description}</p>
-    <Button className={`mt-8 w-full px-6 py-2 border rounded-lg ${buttonColor} text-black border-none`}>
-      🚀 Get Started
+    <h3 className="text-xl font-semibold ">{title}</h3>
+    <p className=" mt-2 font-light text-sm max-w-[240px] text-muted-foreground">{description}</p>
+    <Button className={` mt-6  ${buttonColor} hover:scale-100 group ho w-full  flex gap-2`} size={"default"}>
+      <FaRocket  className=" transition-transform duration-300 group-hover:translate-x-2"/>         
+      <text>Get Started</text>
     </Button>
-    <ul className="mt-4 text-left text-sm space-y-4">
+    <ul className=" mt-6 text-left text-sm space-y-4">
       {features.map((feature, i) => (
-        <li key={i}>✔ {feature}</li>
+        <div key={i} className="flex items-center gap-x-5">
+          <FaCheck  />
+          <li key={i}> {feature}</li>
+          </div>
       ))}
     </ul>
   </motion.div>
@@ -78,7 +83,7 @@ const Card = ({ bgColor, features, index, title, description, buttonColor }: ser
 };
 const Services = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section ref={ref} className="py-16 text-center mt-16 overflow-hidden">
@@ -98,7 +103,7 @@ const Services = () => {
       {/* Cards Animation */}
       <div className="flex mt-10 justify-around mx-auto text-left flex-wrap">
         {servicesData.map((service, index) => (
-          <Card key={index} index={index} bgColor={service.bgColor} {...service} />
+          <Card key={index} index={index}  {...service} />
         ))}
       </div>
     </section>

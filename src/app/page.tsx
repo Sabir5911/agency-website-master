@@ -13,7 +13,7 @@ import Services from './components/ServicesCard'
 export default function page() {
   return (
     <div>
-      <Hero />
+      <Hero />  
       <StatsBanner />
       <Hero2 />
       <Services />
@@ -21,7 +21,6 @@ export default function page() {
       <AIReplacementCTA />
       <OurTeam />
       <Hero6 />
-      {/* <Footer /> */}
     </div>
   )
 }
