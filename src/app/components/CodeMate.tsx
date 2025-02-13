@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
 import CustomButton from "../lib/Button";
+import Link from "next/link";
 
 export default function DevmateLanding() {
     return (
@@ -23,9 +24,11 @@ export default function DevmateLanding() {
             </li>
           ))}
         </ul>
-                        <CustomButton  Text=" UNLOCK FREE SESSION" size="lg" variant="Blue" className="mt-5"/>
+        <Link href="https://calendly.com/sabirali786692/30min">
+
+        <CustomButton  Text=" UNLOCK FREE SESSION" size="lg" variant="Blue" className="mt-5"/>
         
-          
+        </Link>  
         
       </div>
     );

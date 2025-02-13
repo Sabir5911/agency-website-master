@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FaCheck } from "react-icons/fa";
 import { FaRocket } from "react-icons/fa6";
+import Link from "next/link";
 
 const servicesData = [
   {
@@ -65,10 +66,14 @@ const Card = ({  features, index, title, description, buttonColor }: serviceProp
   >
     <h3 className="text-xl font-semibold ">{title}</h3>
     <p className=" mt-2 font-light text-sm max-w-[240px] text-muted-foreground">{description}</p>
+
+    <Link href="https://calendly.com/sabirali786692/30min" target="_blank">
     <Button className={` mt-6  ${buttonColor} hover:scale-100 group ho w-full  flex gap-2`} size={"default"}>
       <FaRocket  className=" transition-transform duration-300 group-hover:translate-x-2"/>         
       <text>Get Started</text>
     </Button>
+    </Link>
+
     <ul className=" mt-6 text-left text-sm space-y-4">
       {features.map((feature, i) => (
         <div key={i} className="flex items-center gap-x-5">

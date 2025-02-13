@@ -20,7 +20,9 @@ export default function Header() {
             className=" w-[60px]"
           />
         </Link >
+        <Link href="https://calendly.com/sabirali786692/30min" target="_blank">
         <CustomButton  Text="Book Demo" size="sm" variant="Blue" className="mt-5 rounded-md"/>
+        </Link>
 
       </div>
   

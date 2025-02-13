@@ -6,6 +6,7 @@ import image3 from "../assets/undraw_online-ad_t56y.svg";
 
 import Image from "next/image";
 import CustomButton from "@/app/lib/Button";
+import Link from "next/link";
 
 const services = [
   {
@@ -36,8 +37,9 @@ const Services = () => {
           </div>
 
           <h3 className="text-lg font-semibold mt-4">{service.title}</h3>
-
+          <Link href="https://calendly.com/sabirali786692/30min" target="_blank">
           <CustomButton Text="Get Started" size="lg" variant="Blue" className="mt-5" />
+          </Link>
         </div>
       ))}
     </div>

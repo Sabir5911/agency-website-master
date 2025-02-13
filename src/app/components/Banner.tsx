@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import logo from "../assets/2.svg";
 import CustomButton from "../lib/Button";
+import Link from "next/link";
 
 
 export default function AIReplacementCTA() {
@@ -29,7 +30,10 @@ export default function AIReplacementCTA() {
         </div>
   
         {/* Right Section - Button */}
-                        <CustomButton  Text=" GET STARTED" size="lg" variant="Blue" className=""/>
+        <Link href="https://calendly.com/sabirali786692/30min" target="_blank">
+        <CustomButton  Text=" GET STARTED" size="lg" variant="Blue" className="" />
+
+        </Link>
       
       </div>
     );
